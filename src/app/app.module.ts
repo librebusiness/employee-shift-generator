@@ -12,11 +12,13 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { HomeComponent } from './home/home.component';
 import { AuthModule } from './auth/auth.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { ShiftViewerComponent } from './shift-viewer/shift-viewer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ShiftViewerComponent
   ],
   imports: [
     BrowserModule,
