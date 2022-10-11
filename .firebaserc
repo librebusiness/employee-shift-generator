@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "employee-shift-generator": {
+      "hosting": {
+        "EmployeeShiftGenerator": [
+          "employee-shift-generator"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "employee-shift-generator"
+  }
+}
