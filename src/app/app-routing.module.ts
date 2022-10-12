@@ -5,9 +5,9 @@ import { ShiftViewerComponent } from './shift-viewer/shift-viewer.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'shifts', component: ShiftViewerComponent },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then((mod) => mod.AuthModule) },
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then((mod) => mod.DashboardModule) },
+  { path: ':username', component: ShiftViewerComponent },
 ];
 
 @NgModule({
