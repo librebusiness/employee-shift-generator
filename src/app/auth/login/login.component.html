@@ -1,1 +1,14 @@
-<p>login works!</p>
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <div class="shadow padding-vertical-2 padding-horizontal-2 width-90 border" style="min-width: 300px; max-width: 720px;">
+    <h2 class="text-center">Iniciar Sesi&oacute;n</h2>
+    <input type="email" [formControl]="email" class="" placeholder="Email">
+    <input type="{{ showPassword ? 'text' : 'password' }}" [formControl]="password" class="" placeholder="Contrase&ntilde;a">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <a style="margin-right: auto; display: inline-block;" [routerLink]="['/auth', 'password-recover']">Olvid&eacute; mi Contrase&ntilde;a</a>
+      <div class="">
+        <a [routerLink]="['/auth', 'signup']" class="button margin-right-1 primary">Registro</a>
+        <button [disabled]="email.invalid || password.invalid" (click)="onSubmit()" type="button" class="button secondary">Entrar</button>
+      </div>
+    </div>
+  </div>
+</div>

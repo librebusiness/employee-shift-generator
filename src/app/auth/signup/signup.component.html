@@ -1,1 +1,11 @@
-<p>signup works!</p>
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <div class="shadow padding-vertical-2 padding-horizontal-2 width-100 border" style="min-width: 300px; max-width: 720px;">
+    <h2 class="text-center">Registrar Cuenta</h2>
+    <input type="email" [formControl]="email" class="" placeholder="Email">
+    <input type="{{ showPassword ? 'text' : 'password' }}" [formControl]="password" class="" placeholder="Contrase&ntilde;a">
+    <div class="text-right">
+      <a [routerLink]="['/auth', 'login']" class="button margin-right-1 primary">Entrar</a>
+      <button [disabled]="email.invalid || password.invalid" (click)="onSubmit()" type="button" class="button secondary">Registrarse</button>
+    </div>
+  </div>
+</div>
