@@ -1,0 +1,25 @@
+<!-- <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+  <button class="menu-icon" type="button" data-toggle="main-menu"></button>
+  <div class="title-bar-title">Menu</div>
+</div> -->
+
+<div class="top-bar stacked-for-small" id="main-menu">
+  <div class="top-bar-left">
+    <ul class="menu">
+      <li class="menu-text"><a [routerLink]="['/dashboard']">Shiftify</a></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><a [routerLink]="['/dashboard', 'employee', 'list']">Empleados</a></li>
+      <li><a [routerLink]="['/dashboard', 'shifts', 'list']">Turnos</a></li>
+      <li><a [routerLink]="['/dashboard', 'planner']">Planificador</a></li>
+      <li><a class="button primary rounded margin-right-1" [routerLink]="['/dashboard', 'profile']"><i class="bi bi-person-circle"></i></a></li>
+      <li><button class="button alert" type="button" style="cursor: pointer;" (click)="logout()"><i class="bi bi-box-arrow-right"></i></button></li>
+    </ul>
+  </div>
+</div>
+
+<div class="padding-2">
+  <router-outlet></router-outlet>
+</div>

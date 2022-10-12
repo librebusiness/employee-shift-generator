@@ -1,1 +1,67 @@
-<p>employee-list works!</p>
+<div class="position-relative margin-bottom-1">
+  <h2 class="text-center separator-center">Empleados</h2>
+  <button (click)="modal.style.display='flex'" style="top: 50%; right: 16px; transform: translateY(-50%);" type="button" class="button rounded primary position-absolute"><i class="bi bi-plus-lg"></i></button>
+</div>
+
+<div class="grid-x grid-padding-x">
+  <div class="cell small-12 medium-6 large-4" *ngFor="let employee of employees">
+    <div class="radius bordered shadow card">
+      <img [routerLink]="['/dashboard', 'employee', 'detail', employee.id]" src="{{ employee.photo ? employee.photo : 'https://i.pravatar.cc/600?u=' + employee.id }}">
+      <div [routerLink]="['/dashboard', 'employee', 'detail', employee.id]" class="card-divider">{{ employee.lastname }}, {{ employee.firstname }}</div>
+      <div class="card-section">
+        <p><a href="mailto:{{employee.email}}">{{ employee.email }}</a></p>
+        <p><a href="tel:{{employee.phone}}">{{ employee.phone }}</a></p>
+        <p><a href="tel:{{employee.mobile}}">{{ employee.mobile }}</a></p>
+        <div class="text-center">
+          <button (click)="deleteEmployee(employee.id)" class="button alert margin-right-1" type="button">Eliminar</button>
+          <button (click)="sendSchedule(employee.email)" class="button success margin-right-1" type="button">Enviar Horario</button>
+          <a [routerLink]="['/dashboard', 'employee', 'detail', employee.id]" class="button primary" type="button">Detalles</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" #modal>
+  <div class="modal-content shadow padding-2 position-relative">
+    <button #closer (click)="modal.style.display='none'" class="closer" type="button"><i class="bi bi-x-lg"></i></button>
+    <h1>Registrar Empleado</h1>
+    <div class="grid-x grid-padding-x align-middle">
+      <div class="cell medium-3">
+        <img style="cursor: pointer;" src="{{ photo.value ? photo.value : 'https://i.pravatar.cc/600'  }}" (click)="fileInput.click()">
+        <input type="file" [formControl]="photo" accept="image/*" style="display: none;" #fileInput (change)="onChange($event)">
+      </div>
+      <div class="cel medium-9">
+        <div class="grid-x grid-padding-x">
+          <div class="cell medium-6">
+            <label>Nombre(s):
+              <input type="text" [formControl]="firstname">
+            </label>
+            <label>Apellido(s):
+              <input type="text" [formControl]="lastname">
+            </label>
+            <label>Email:
+              <input type="email" [formControl]="email">
+            </label>
+          </div>
+          <div class="cell medium-6">
+            <label>Tel&eacute;fono:
+              <input type="tel" [formControl]="phone">
+            </label>
+            <label>Celular:
+              <input type="tel" [formControl]="mobile">
+            </label>
+            <label>Turno Principal:
+              <select [formControl]="mainShift">
+                <option *ngFor="let shift of shifts" [value]="shift.id">{{ shift.name }}</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="margin-top-2 text-right">
+      <button (click)="saveEmployee();closer.click()" type="button" class="button primary">Guardar</button>
+    </div>
+  </div>
+</div>

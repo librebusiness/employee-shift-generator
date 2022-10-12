@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { SummaryComponent } from './summary/summary.component';
@@ -8,6 +9,8 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
 import { ShiftListComponent } from './shift-list/shift-list.component';
 import { ShiftPlannerComponent } from './shift-planner/shift-planner.component';
 import { ShiftDetailComponent } from './shift-detail/shift-detail.component';
+import { ContainerComponent } from './container/container.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -17,11 +20,14 @@ import { ShiftDetailComponent } from './shift-detail/shift-detail.component';
     EmployeeDetailComponent,
     ShiftListComponent,
     ShiftPlannerComponent,
-    ShiftDetailComponent
+    ShiftDetailComponent,
+    ContainerComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    ReactiveFormsModule,
   ]
 })
 export class DashboardModule { }

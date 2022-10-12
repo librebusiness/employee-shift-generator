@@ -1,0 +1,28 @@
+.modal {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background: #22222290;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+
+  .modal-content {
+    background-color: #fafafa;
+    position: relative;
+
+    .closer {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      cursor: pointer;
+      color: #888;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}

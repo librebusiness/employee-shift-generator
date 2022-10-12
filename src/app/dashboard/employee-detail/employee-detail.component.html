@@ -1,1 +1,44 @@
-<p>employee-detail works!</p>
+<h2 class="text-center separator-center position-relative">Detalles de Emplead@</h2>
+
+<div class="margin-horizontal-3" *ngIf="employee">
+  <div class="grid-x grid-padding-x align-middle">
+    <div class="cell medium-3">
+      <img style="cursor: pointer;" src="{{ photo.value ? photo.value : employee.photo ? employee.photo : 'https://i.pravatar.cc/600?u=' + id  }}" (click)="fileInput.click()">
+      <input type="file" [formControl]="photo" accept="image/*" style="display: none;" #fileInput (change)="onChange($event)">
+    </div>
+    <div class="cel medium-9">
+      <div class="grid-x grid-padding-x">
+        <div class="cell medium-6">
+          <label>Nombre(s):
+            <input type="text" [formControl]="firstname">
+          </label>
+          <label>Apellido(s):
+            <input type="text" [formControl]="lastname">
+          </label>
+          <label>Email:
+            <input type="email" [formControl]="email">
+          </label>
+        </div>
+        <div class="cell medium-6">
+          <label>Tel&eacute;fono:
+            <input type="tel" [formControl]="phone">
+          </label>
+          <label>Celular:
+            <input type="tel" [formControl]="mobile">
+          </label>
+          <label>Turno Principal:
+            <select [formControl]="mainShift">
+              <option *ngFor="let shift of shifts" [value]="shift.id">{{ shift.name }}</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center margin-top-2">
+    <a [routerLink]="['/dashboard', 'employee', 'list']" class="button warning margin-right-1">Volver</a>
+    <button (click)="deleteEmployee()" class="button alert margin-right-1" type="button">Eliminar</button>
+    <button (click)="sendSchedule()" class="button success margin-right-1" type="button">Enviar Horario</button>
+    <button (click)="updateEmployee()" class="button primary" type="button">Actualizar Datos</button>
+  </div>
+</div>
